@@ -204,9 +204,8 @@ namespace Homework_number_51
         private bool GetBool(Random random)
         {
             double chanceFallingTrue = 0.50;
-            double randomValue = random.NextDouble();
 
-            return randomValue >= chanceFallingTrue;
+            return random.NextDouble() >= chanceFallingTrue;
         }
     }
 }
