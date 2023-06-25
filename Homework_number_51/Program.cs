@@ -11,7 +11,8 @@ namespace Homework_number_51
         static void Main(string[] args)
         {
             const string CommandFindPerpetrators = "1";
-            const string CommandExit = "2";
+            const string CommandShowAllPerpetrators = "2";
+            const string CommandExit = "3";
 
             Database database = new Database();
 
@@ -21,6 +22,7 @@ namespace Homework_number_51
             while (isExit == false)
             {
                 Console.WriteLine($"Для того что бы перейти к поиску преступников нажмите: {CommandFindPerpetrators}\n" +
+                                  $"Для того что бы просмотреть список всех преступников нажмите: {CommandShowAllPerpetrators}\n" +
                                   $"Для того что бы закрыть приложение нажмите {CommandExit}\n");
                 userInput = Console.ReadLine();
 
@@ -28,6 +30,10 @@ namespace Homework_number_51
                 {
                     case CommandFindPerpetrators:
                         database.FindPerpetrators();
+                        break;
+
+                    case CommandShowAllPerpetrators:
+                        database.ShowAllPerpetrators();
                         break;
 
                     case CommandExit:
@@ -98,6 +104,15 @@ namespace Homework_number_51
                 ShowPerpetrator(perpetrator);
             }
         }
+
+        public void ShowAllPerpetrators()
+        {
+            for (int i = 0; i < _perpetrators.Count; i++)
+            {
+                ShowPerpetrator(_perpetrators[i]);
+            }
+        }
+
         private void ShowPerpetrator(Perpetrator perpetrator)
         {
             Console.WriteLine("Заключенные преступники:");
